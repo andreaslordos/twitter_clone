@@ -8,9 +8,11 @@
 
 #import "TimelineViewController.h"
 #import "APIManager.h"
+#import "AppDelegate.h"
+#import "LoginViewController.h"
 
 @interface TimelineViewController ()
-
+- (IBAction)didTapLogout:(id)sender;
 @end
 
 @implementation TimelineViewController
@@ -48,4 +50,16 @@
 */
 
 
+- (IBAction)didTapLogout:(id)sender {
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+
+    // switch root view controller back to login page
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    appDelegate.window.rootViewController = loginViewController;
+    
+    // clear access tokens
+    [[APIManager shared] logout];
+
+}
 @end
