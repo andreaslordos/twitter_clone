@@ -20,6 +20,7 @@
 		BFCB10A828618DC200606C83 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCB10A728618DC200606C83 /* User.m */; };
 		BFCB10AB28618F7B00606C83 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCB10AA28618F7B00606C83 /* Tweet.m */; };
 		BFCB10AD28622C2B00606C83 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFCB10AC28622C2B00606C83 /* Keys.plist */; };
+		BFCB10B028623A1B00606C83 /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCB10AF28623A1B00606C83 /* TweetCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,8 @@
 		BFCB10A928618F7B00606C83 /* Tweet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
 		BFCB10AA28618F7B00606C83 /* Tweet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
 		BFCB10AC28622C2B00606C83 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
+		BFCB10AE28623A1B00606C83 /* TweetCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TweetCell.h; sourceTree = "<group>"; };
+		BFCB10AF28623A1B00606C83 /* TweetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TweetCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +127,8 @@
 				BFCB10A728618DC200606C83 /* User.m */,
 				BFCB10A928618F7B00606C83 /* Tweet.h */,
 				BFCB10AA28618F7B00606C83 /* Tweet.m */,
+				BFCB10AE28623A1B00606C83 /* TweetCell.h */,
+				BFCB10AF28623A1B00606C83 /* TweetCell.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFCB10B028623A1B00606C83 /* TweetCell.m in Sources */,
 				6AD278F320BCA6020085BC29 /* BDBOAuth1SessionManager+SFAuthenticationSession.m in Sources */,
 				BFCB10A828618DC200606C83 /* User.m in Sources */,
 				6AD278E820BC4B970085BC29 /* main.m in Sources */,
@@ -397,13 +403,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3P2W72R536;
 				INFOPLIST_FILE = twitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.twitter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.twitterCodepath;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -415,13 +421,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3P2W72R536;
 				INFOPLIST_FILE = twitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.twitter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.twitterCodepath;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

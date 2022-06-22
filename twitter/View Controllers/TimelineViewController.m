@@ -7,32 +7,63 @@
 //
 
 #import "TimelineViewController.h"
+#import "TweetCell.h"
 #import "APIManager.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "UIImageView+AFNetworking.h"
 
-@interface TimelineViewController ()
+@interface TimelineViewController () <UITableViewDelegate, UITableViewDataSource>
 - (IBAction)didTapLogout:(id)sender;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *arrayOfTweets;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
 @implementation TimelineViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+
+    // add refresh control to table view
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
+
+    [self beginRefresh:self.refreshControl];
+
+}
+
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+    // [self.activityIndicator startAnimating];
+    [refreshControl setTintColor:[UIColor whiteColor]];
+
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
-            for (NSDictionary *dictionary in tweets) {
-                NSString *text = dictionary[@"text"];
-                NSLog(@"%@", text);
-            }
+            self.arrayOfTweets = [tweets mutableCopy];
+            [self.tableView reloadData];
+            [refreshControl endRefreshing];
+            // [self.activityIndicator stopAnimating];
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Cannot get movies"
+                                        message:@"The internet connection appears to be offline."
+                                        preferredStyle:UIAlertControllerStyleAlert];
+
+            UIAlertAction* retryAction = [UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleDefault
+                                        handler:^(UIAlertAction * action) {[self beginRefresh:self.refreshControl];}];
+
+            [alert addAction:retryAction];
+            [self presentViewController:alert animated:YES completion:nil];
         }
     }];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -60,6 +91,20 @@
     
     // clear access tokens
     [[APIManager shared] logout];
-
 }
+
+- (nonnull TweetCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
+    //NSLog(@"%@", self.arrayOfTweets[indexPath.row]);
+    cell.tweet = self.arrayOfTweets[indexPath.row];
+    NSLog(@"self.arrayOfTweets[indexPath.row]: %@", self.arrayOfTweets[indexPath.row]);
+    NSLog(@"cell.tweet: %@", cell.tweet);
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"Size: %lu", [self.arrayOfTweets count]);
+    return [self.arrayOfTweets count];
+}
+
 @end
