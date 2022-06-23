@@ -34,6 +34,7 @@
     [self.tableView insertSubview:self.refreshControl atIndex:0];
 
     [self beginRefresh:self.refreshControl];
+    [self.tableView reloadData];
 
 }
 
