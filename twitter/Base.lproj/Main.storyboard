@@ -533,10 +533,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="300" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GV4-wL-b5d" userLabel="characterCount">
+                                <rect key="frame" x="357" y="228" width="31" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.66666668650000005" green="0.66666668650000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Yxg-kh-mKL"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="GV4-wL-b5d" firstAttribute="top" secondItem="tPu-IH-ikO" secondAttribute="bottom" constant="8" symbolic="YES" id="BS1-cr-RTo"/>
+                            <constraint firstItem="GV4-wL-b5d" firstAttribute="trailing" secondItem="tPu-IH-ikO" secondAttribute="trailing" id="NMB-uC-njA"/>
                             <constraint firstItem="tPu-IH-ikO" firstAttribute="leading" secondItem="Yxg-kh-mKL" secondAttribute="leading" constant="40" id="UG3-t5-Cnr"/>
                             <constraint firstItem="tPu-IH-ikO" firstAttribute="top" secondItem="HTO-TW-7gb" secondAttribute="top" constant="70" id="bbZ-Nl-rDR"/>
                             <constraint firstItem="Yxg-kh-mKL" firstAttribute="trailing" secondItem="tPu-IH-ikO" secondAttribute="trailing" constant="40" id="k1r-kp-jPb"/>
@@ -555,6 +563,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="characterCount" destination="GV4-wL-b5d" id="bpy-RN-BNk"/>
                         <outlet property="composeBox" destination="tPu-IH-ikO" id="OPd-lA-akt"/>
                     </connections>
                 </viewController>

@@ -9,7 +9,7 @@
 #import "ComposeViewController.h"
 #import "APIManager.h"
 
-@interface ComposeViewController ()
+@interface ComposeViewController ()<UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *composeBox;
 @end
 
@@ -17,7 +17,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.composeBox.delegate = self;
+}
+
+-(void)textViewDidChange:(UITextView *)textView
+{
+  NSString *temp = textView.text;
+  int64_t titleLength = textView.text.length;
+  self.characterCount.text = [@(300 - textView.text.length) stringValue];
+  if (titleLength > 299)
+   {
+   textView.text = [temp substringToIndex:299];
+   }
 }
 
 - (IBAction)tweetAction:(id)sender {

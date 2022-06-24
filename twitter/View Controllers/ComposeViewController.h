@@ -18,7 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface ComposeViewController : UIViewController
+@interface ComposeViewController : UIViewController <UITextViewDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *characterCount;
 
 @property (nonatomic, weak) id<ComposeViewControllerDelegate> delegate;
 
