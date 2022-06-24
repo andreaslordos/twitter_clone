@@ -25,6 +25,9 @@
 // sets labels
 - (void)refreshData {
     [self.profilePicture setImageWithURL:[NSURL URLWithString:self.tweet.user.profilePicture]];
+    self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.height /2;
+    self.profilePicture.layer.masksToBounds = YES;
+    self.profilePicture.layer.borderWidth = 0;
     self.realName.text = self.tweet.user.name;
     self.username.text = [@"@" stringByAppendingString:self.tweet.user.screenName];
     self.tweetText.text = self.tweet.text;

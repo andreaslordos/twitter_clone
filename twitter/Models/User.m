@@ -17,7 +17,9 @@
         // see https://dev.twitter.com/overview/api/users
         self.name = dictionary[@"name"];
         self.screenName = dictionary[@"screen_name"];
-        self.profilePicture = dictionary[@"profile_image_url_https"];
+        NSString *separatorString = @"_normal";
+        NSString *normal_url = dictionary[@"profile_image_url_https"];
+        self.profilePicture = [normal_url stringByReplacingOccurrencesOfString:separatorString withString:@""];
     }
     
     return self;
