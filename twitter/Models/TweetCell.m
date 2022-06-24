@@ -9,6 +9,7 @@
 #import "TweetCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "APIManager.h"
+#import "Utilities.h"
 
 @implementation TweetCell
 
@@ -32,10 +33,10 @@
     self.username.text = [@"@" stringByAppendingString:self.tweet.user.screenName];
     self.tweetText.text = self.tweet.text;
     self.dateLabel.text = self.tweet.createdAtString;
-    [self.retweetButton setTitle:[@(self.tweet.retweetCount) stringValue] forState:UIControlStateNormal];
-    [self.retweetButton setTitle:[@(self.tweet.retweetCount) stringValue] forState:UIControlStateSelected];
-    [self.favoriteButton setTitle:[@(self.tweet.favoriteCount) stringValue] forState:UIControlStateNormal];
-    [self.favoriteButton setTitle:[@(self.tweet.favoriteCount) stringValue] forState:UIControlStateSelected];
+    [self.retweetButton setTitle:[Utilities convertCountToReadableString:(self.tweet.retweetCount)] forState:UIControlStateNormal];
+    [self.retweetButton setTitle:[Utilities convertCountToReadableString:(self.tweet.retweetCount)] forState:UIControlStateSelected];
+    [self.favoriteButton setTitle:[Utilities convertCountToReadableString:(self.tweet.favoriteCount)] forState:UIControlStateNormal];
+    [self.favoriteButton setTitle:[Utilities convertCountToReadableString:(self.tweet.favoriteCount)] forState:UIControlStateSelected];
     //self.retweetButton.titleLabel.text = [@(self.tweet.retweetCount) stringValue];
     //self.favoriteButton.titleLabel.text = [@(self.tweet.favoriteCount) stringValue];
 }

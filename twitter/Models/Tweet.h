@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL retweeted; // TRUE if user has retweeted tweet
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) NSString *createdAtString; // display date
+@property (nonatomic, strong) NSString *dateCreated;
+@property (nonatomic, strong) NSString *timeCreated;
 @property (nonatomic, strong) User *retweetedByUser; // if retweet, this is the user that retweeted it
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;

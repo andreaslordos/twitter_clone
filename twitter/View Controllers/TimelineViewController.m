@@ -84,11 +84,12 @@
         ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
         composeController.delegate = self;
     }
-//    else if ([[segue identifier] isEqualToString:@"detafilSegue"]){
-//        UINavigationController *navigationController = [segue destinationViewController];
-//        DetailsViewController *detailsController = (DetailsViewController*)navigationController.topViewController;
-//        detailsController.delegate = self;
-//    }
+    else {
+        DetailsViewController *detailVC = [segue destinationViewController];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        Tweet *dataToPass = self.arrayOfTweets[indexPath.row];
+        detailVC.tweet = dataToPass;
+    }
 }
 
 
