@@ -9,6 +9,7 @@
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "Utilities.h"
+#import "APIManager.h"
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
@@ -23,6 +24,71 @@
 @end
 
 @implementation DetailsViewController
+
+- (IBAction)didTapRetweet:(id)sender {
+    if (self.tweet.retweeted == YES) { // unretweet
+        //[sender setImage:unselectedImage forState:UIControlStateNormal];
+        [sender setSelected:NO];
+        // Update the local tweet model
+        self.tweet.retweeted = NO;
+        self.tweet.retweetCount -= 1;
+        //UIImage *img = [UIImage imageNamed:@"heart"];
+        //[sender setImage:img forState:u];
+    } else { // favorite
+        //
+        [sender setSelected:YES];
+        // Update the local tweet model
+        self.tweet.retweeted = YES;
+        self.tweet.retweetCount += 1;
+        //UIImage *img = [UIImage imageNamed:@"heart.fill"];
+        //[sender setImage:img forState:UIControlStateNormal];
+    }
+    // Update cell UI
+    [self refreshData];
+    
+    // Send a POST request to the POST favorites/create endpoint
+    [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
+        if(error){
+            NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
+        }
+        else{
+            NSLog(@"Successfully toggled retweet the following Tweet: %@", tweet.text);
+        }
+    }];
+}
+
+- (IBAction)didTapHeart:(id)sender {
+    if (self.tweet.favorited == YES) { // unfavorite
+        //[sender setImage:unselectedImage forState:UIControlStateNormal];
+        [sender setSelected:NO];
+        // Update the local tweet model
+        self.tweet.favorited = NO;
+        self.tweet.favoriteCount -= 1;
+        //UIImage *img = [UIImage imageNamed:@"heart"];
+        //[sender setImage:img forState:u];
+    } else { // favorite
+        //
+        [sender setSelected:YES];
+        // Update the local tweet model
+        self.tweet.favorited = YES;
+        self.tweet.favoriteCount += 1;
+        //UIImage *img = [UIImage imageNamed:@"heart.fill"];
+        //[sender setImage:img forState:UIControlStateNormal];
+    }
+    // Update cell UI
+    [self refreshData];
+    
+    // Send a POST request to the POST favorites/create endpoint
+    [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
+        if(error){
+            NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
+        }
+        else{
+            NSLog(@"Successfully toggled favorite the following Tweet: %@", tweet.text);
+        }
+    }];
+}
+
 
 
 // sets labels
