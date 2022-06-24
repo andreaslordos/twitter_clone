@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "DetailsViewController.h"
 
 @interface TimelineViewController () <UITableViewDelegate, UITableViewDataSource>
 - (IBAction)didTapLogout:(id)sender;
@@ -78,9 +79,16 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    UINavigationController *navigationController = [segue destinationViewController];
-    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-    composeController.delegate = self;
+    if ([[segue identifier] isEqualToString:@"composeSegue"]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+        ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+        composeController.delegate = self;
+    }
+//    else if ([[segue identifier] isEqualToString:@"detafilSegue"]){
+//        UINavigationController *navigationController = [segue destinationViewController];
+//        DetailsViewController *detailsController = (DetailsViewController*)navigationController.topViewController;
+//        detailsController.delegate = self;
+//    }
 }
 
 
