@@ -11,6 +11,7 @@
 
 @interface ComposeViewController ()<UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *composeBox;
+@property (nonatomic) int characterLimit;
 @end
 
 @implementation ComposeViewController
@@ -18,16 +19,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.composeBox.delegate = self;
+    self.characterLimit = 280;
 }
 
 -(void)textViewDidChange:(UITextView *)textView
 {
   NSString *temp = textView.text;
   int64_t titleLength = textView.text.length;
-  self.characterCount.text = [@(300 - textView.text.length) stringValue];
-  if (titleLength > 299)
+  self.characterCount.text = [@(self.characterLimit - textView.text.length) stringValue];
+  if (titleLength >= self.characterLimit)
    {
-   textView.text = [temp substringToIndex:299];
+   textView.text = [temp substringToIndex:self.characterLimit];
    }
 }
 
