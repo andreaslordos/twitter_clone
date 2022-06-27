@@ -57,15 +57,12 @@
 
 - (IBAction)didTapFavorite:(id)sender {
     if (self.tweet.favorited == YES) { // unfavorite
-        //[sender setImage:unselectedImage forState:UIControlStateNormal];
         [sender setSelected:NO];
-        // Update the local tweet model
         self.tweet.favorited = NO;
         self.tweet.favoriteCount -= 1;
         self.favoriteButton.tintColor = self.defaultColor;
     } else { // favorite
         [sender setSelected:YES];
-        // Update the local tweet model
         self.tweet.favorited = YES;
         self.tweet.favoriteCount += 1;
         self.favoriteButton.tintColor = UIColor.redColor;
@@ -92,10 +89,9 @@
         self.tweet.retweeted = NO;
         self.tweet.retweetCount -= 1;
         self.retweetButton.tintColor = self.defaultColor;
-    } else { // favorite
+    } else { // retweet
         //
         [sender setSelected:YES];
-        // Update the local tweet model
         self.tweet.retweeted = YES;
         self.tweet.retweetCount += 1;
         self.retweetButton.tintColor = UIColor.greenColor;

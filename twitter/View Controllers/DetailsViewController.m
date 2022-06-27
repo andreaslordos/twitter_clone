@@ -30,14 +30,11 @@
 - (IBAction)didTapRetweet:(id)sender {
     if (self.tweet.retweeted == YES) { // unretweet
         [sender setSelected:NO];
-        // Update the local tweet model
         self.tweet.retweeted = NO;
         self.tweet.retweetCount -= 1;
         self.retweetButton.tintColor = self.defaultColor;
-    } else { // favorite
-        //
+    } else { // retweet
         [sender setSelected:YES];
-        // Update the local tweet model
         self.tweet.retweeted = YES;
         self.tweet.retweetCount += 1;
         self.retweetButton.tintColor = UIColor.greenColor;
@@ -48,7 +45,7 @@
     // Send a POST request to the POST favorites/create endpoint
     [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
         if(error){
-            NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
+            NSLog(@"Error retweet-toggling tweet: %@", error.localizedDescription);
         }
         else{
             NSLog(@"Successfully toggled retweet the following Tweet: %@", tweet.text);
@@ -58,9 +55,7 @@
 
 - (IBAction)didTapHeart:(id)sender {
     if (self.tweet.favorited == YES) { // unfavorite
-        //[sender setImage:unselectedImage forState:UIControlStateNormal];
         [sender setSelected:NO];
-        // Update the local tweet model
         self.tweet.favorited = NO;
         self.tweet.favoriteCount -= 1;
         self.favoriteButton.tintColor = self.defaultColor;
@@ -68,7 +63,6 @@
     } else { // favorite
         //
         [sender setSelected:YES];
-        // Update the local tweet model
         self.tweet.favorited = YES;
         self.tweet.favoriteCount += 1;
         self.favoriteButton.tintColor = UIColor.redColor;

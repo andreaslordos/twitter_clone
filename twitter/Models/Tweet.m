@@ -39,11 +39,6 @@
         self.dateCreated = [NSString stringWithFormat: @"%ld/%ld/%ld", date.month, date.day, date.year];
         self.timeCreated = [NSString stringWithFormat: @"%ld:%ld", date.hour, date.minute];
         self.createdAtString = date.shortTimeAgoSinceNow;
-        /*
-        formatter.dateStyle = NSDateFormatterShortStyle;
-        formatter.timeStyle = NSDateFormatterNoStyle;
-        self.createdAtString = [formatter stringFromDate:date];
-         */
     }
     return self;
 }

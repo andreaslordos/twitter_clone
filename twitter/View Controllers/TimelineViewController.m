@@ -40,20 +40,18 @@
 }
 
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
-    // [self.activityIndicator startAnimating];
     [refreshControl setTintColor:[UIColor whiteColor]];
 
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
-            NSLog(@"😎😎😎 Successfully loaded home timeline");
+            // successfuly loaded home timeline
             self.arrayOfTweets = [tweets mutableCopy];
             [self.tableView reloadData];
             [refreshControl endRefreshing];
-            // [self.activityIndicator stopAnimating];
         } else {
-            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Cannot get movies"
+            // error loading timeline
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Cannot get tweets"
                                         message:@"The internet connection appears to be offline."
                                         preferredStyle:UIAlertControllerStyleAlert];
 
@@ -107,7 +105,6 @@
 
 - (nonnull TweetCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
-    //NSLog(@"%@", self.arrayOfTweets[indexPath.row]);
     cell.tweet = self.arrayOfTweets[indexPath.row];
     NSLog(@"self.arrayOfTweets[indexPath.row]: %@", self.arrayOfTweets[indexPath.row]);
     NSLog(@"cell.tweet: %@", cell.tweet);

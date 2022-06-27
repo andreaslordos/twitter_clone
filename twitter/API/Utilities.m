@@ -11,6 +11,7 @@
 
 @implementation Utilities
 
+// converts ints to readable strings - e.g. 123456 becomes 123K, 1046 becomes 1,046 etc.
 + (NSString *) convertCountToReadableString:(int)count {
     NSString *finalString = @"";
     if (count < 1000) {

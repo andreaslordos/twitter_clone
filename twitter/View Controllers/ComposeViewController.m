@@ -27,10 +27,9 @@
   NSString *temp = textView.text;
   int64_t titleLength = textView.text.length;
   self.characterCount.text = [@(self.characterLimit - textView.text.length) stringValue];
-  if (titleLength >= self.characterLimit)
-   {
-   textView.text = [temp substringToIndex:self.characterLimit];
-   }
+  if (titleLength >= self.characterLimit) {
+      textView.text = [temp substringToIndex:self.characterLimit];
+  }
 }
 
 - (IBAction)tweetAction:(id)sender {
@@ -38,14 +37,14 @@
         NSString *text = self.composeBox.text;
         [[APIManager shared] postStatusWithText:text completion:^(Tweet *tweet, NSError *error) {
             if (error != nil) {
-                NSLog(@"Error composing tweet: %@", error.localizedDescription);
+                // error composing tweet
                 UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error composing tweet"
                                             message:@"Please try again."
                                             preferredStyle:UIAlertControllerStyleAlert];
                 [self presentViewController:alert animated:YES completion:nil];
             } else {
-                NSLog(@"😎😎😎 Successfully composed tweet");
-                [self.delegate didTweet:tweet];
+                // successfully composed tweet
+                [self.delegate didTweet:tweet]; // pass tweet back on to timeline
                 [self dismissViewControllerAnimated:NO completion:nil]; // dismiss view controller after tweet
             }
         }];
