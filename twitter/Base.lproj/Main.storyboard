@@ -73,7 +73,7 @@
                                 <color key="separatorColor" red="0.66666668650000005" green="0.66666668650000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="117" id="Zz0-Wc-b3C" customClass="TweetCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="117" id="Zz0-Wc-b3C" customClass="TweetCell">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zz0-Wc-b3C" id="9DA-dr-rGD">
@@ -81,7 +81,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="86t-bP-hSa" userLabel="profilePicture">
-                                                    <rect key="frame" x="16" y="11" width="60" height="60"/>
+                                                    <rect key="frame" x="16" y="11" width="56" height="56"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
@@ -115,15 +115,15 @@
                                                         <color key="titleColor" red="0.6784313917" green="0.71764707569999997" blue="0.7607843876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
                                                 </button>
-                                                <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" editable="NO" text="Hello world" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QIW-hT-x6K">
-                                                    <rect key="frame" x="86" y="32" width="317" height="35.333333333333343"/>
+                                                <textView clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" editable="NO" text="Hello world" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QIW-hT-x6K">
+                                                    <rect key="frame" x="86" y="29.000000000000004" width="317" height="35.333333333333343"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                                 </textView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="C9A-kO-Lff">
+                                                <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillProportionally" alignment="lastBaseline" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="C9A-kO-Lff">
                                                     <rect key="frame" x="86" y="91" width="317" height="20"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTj-71-vQv" userLabel="replyButton">
@@ -137,34 +137,35 @@
                                                                 <color key="baseForegroundColor" red="0.6784313917" green="0.72156864399999998" blue="0.7607843876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             </buttonConfiguration>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kp7-kQ-Hsm" userLabel="retweetButton">
-                                                            <rect key="frame" x="92.333333333333343" y="0.0" width="40" height="20"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="kp7-kQ-Hsm" userLabel="retweetButton">
+                                                            <rect key="frame" x="60" y="0.0" width="67" height="20"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="40" id="bi5-e5-Gvo"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="bi5-e5-Gvo"/>
                                                                 <constraint firstAttribute="height" constant="20" id="y7S-aW-ypy"/>
                                                             </constraints>
+                                                            <color key="tintColor" red="0.67843137254901964" green="0.72156862745098038" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                            <state key="normal" title="Button" image="retweet-icon">
-                                                                <color key="titleColor" systemColor="labelColor"/>
+                                                            <state key="normal" title="1,891" image="arrow.counterclockwise" catalog="system">
+                                                                <color key="titleColor" red="0.67843137254901964" green="0.72156862745098038" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             </state>
-                                                            <buttonConfiguration key="configuration" style="plain" image="arrow.counterclockwise" catalog="system" title="0">
-                                                                <color key="baseForegroundColor" red="0.6784313917" green="0.72156864399999998" blue="0.7607843876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                            </buttonConfiguration>
                                                             <connections>
                                                                 <action selector="didTapRetweet:" destination="Zz0-Wc-b3C" eventType="touchUpInside" id="ZG1-BB-mT3"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9kD-Ul-Jrf" userLabel="favoriteButton">
-                                                            <rect key="frame" x="184.66666666666669" y="0.0" width="40" height="20"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="9kD-Ul-Jrf" userLabel="favoriteButton">
+                                                            <rect key="frame" x="147" y="0.0" width="110" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="17K-Su-CLz"/>
-                                                                <constraint firstAttribute="width" constant="40" id="X37-rX-S5R"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="X37-rX-S5R"/>
                                                             </constraints>
-                                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="tintColor" red="0.67843137254901964" green="0.72156862745098038" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                            <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system" title="0">
-                                                                <color key="baseForegroundColor" red="0.6784313917" green="0.72156864399999998" blue="0.7607843876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                            </buttonConfiguration>
+                                                            <state key="normal" title="25.6K" image="heart" catalog="system">
+                                                                <color key="titleColor" red="0.6784313917" green="0.72156864399999998" blue="0.7607843876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            </state>
+                                                            <state key="selected">
+                                                                <color key="titleColor" red="0.6784313917" green="0.72156864399999998" blue="0.7607843876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            </state>
                                                             <connections>
                                                                 <action selector="didTapFavorite:" destination="Zz0-Wc-b3C" eventType="touchUpInside" id="sqi-dQ-LWQ"/>
                                                             </connections>
@@ -191,7 +192,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="QIW-hT-x6K" firstAttribute="top" secondItem="hWW-up-leE" secondAttribute="bottom" constant="3" id="0wC-0k-huS"/>
+                                                <constraint firstItem="QIW-hT-x6K" firstAttribute="top" secondItem="hWW-up-leE" secondAttribute="bottom" id="0wC-0k-huS"/>
                                                 <constraint firstItem="1P7-0E-N7q" firstAttribute="centerY" secondItem="hWW-up-leE" secondAttribute="centerY" id="4sK-7P-5bp"/>
                                                 <constraint firstItem="knA-Nl-O64" firstAttribute="leading" secondItem="1P7-0E-N7q" secondAttribute="trailing" constant="5" id="D9Z-X4-Fc2"/>
                                                 <constraint firstItem="ey1-0a-BnR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="knA-Nl-O64" secondAttribute="trailing" constant="15" id="TMm-vi-sRJ"/>
@@ -284,8 +285,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aks-x9-mCx">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CTh-dV-wV7" userLabel="profilePicture">
-                                                <rect key="frame" x="0.0" y="20" width="60" height="60"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CTh-dV-wV7" userLabel="profilePicture">
+                                                <rect key="frame" x="0.0" y="20" width="56" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="OX5-4o-z0z"/>
                                                     <constraint firstAttribute="height" constant="60" id="cbQ-Z2-9yN"/>
@@ -322,18 +323,19 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="D3A-nS-iJH" userLabel="buttonStack">
-                                                <rect key="frame" x="75" y="186.33333333333334" width="278" height="30.666666666666657"/>
+                                                <rect key="frame" x="113.33333333333333" y="186.33333333333334" width="201.33333333333337" height="22"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYC-4M-i9W" userLabel="dmButton">
-                                                        <rect key="frame" x="0.0" y="0.0" width="47.333333333333336" height="30.666666666666668"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="message" catalog="system" title="">
-                                                            <color key="baseForegroundColor" red="0.6784313917" green="0.72156864399999998" blue="0.7607843876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        </buttonConfiguration>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYC-4M-i9W" userLabel="dmButton">
+                                                        <rect key="frame" x="0.0" y="0.0" width="21.666666666666668" height="22"/>
+                                                        <color key="tintColor" red="0.67843137249999996" green="0.72156862749999995" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="" image="message" catalog="system">
+                                                            <color key="titleColor" red="0.6784313917" green="0.72156864399999998" blue="0.7607843876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </state>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTz-eM-8VF" userLabel="retweetButton">
-                                                        <rect key="frame" x="87.333333333333343" y="0.0" width="19" height="30.666666666666668"/>
-                                                        <color key="tintColor" red="0.63529413940000001" green="0.63529413940000001" blue="0.63921570780000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTz-eM-8VF" userLabel="retweetButton">
+                                                        <rect key="frame" x="61.66666666666665" y="0.0" width="17.666666666666664" height="22"/>
+                                                        <color key="tintColor" red="0.67843137249999996" green="0.72156862749999995" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" image="arrow.counterclockwise" catalog="system">
                                                             <color key="titleColor" red="0.6784313917" green="0.72156864399999998" blue="0.7607843876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -342,25 +344,34 @@
                                                             <action selector="didTapRetweet:" destination="1Hh-im-dLA" eventType="touchUpInside" id="zTc-Eb-2WQ"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uv6-WF-f7A" userLabel="favoriteButton">
-                                                        <rect key="frame" x="146.33333333333334" y="0.0" width="45.333333333333343" height="30.666666666666668"/>
-                                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uv6-WF-f7A" userLabel="favoriteButton">
+                                                        <rect key="frame" x="119.33333333333333" y="0.0" width="20.666666666666671" height="22"/>
+                                                        <color key="tintColor" red="0.67843137249999996" green="0.72156862749999995" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
-                                                            <color key="baseForegroundColor" red="0.6784313917" green="0.72156864399999998" blue="0.7607843876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        </buttonConfiguration>
+                                                        <state key="normal" image="heart" catalog="system">
+                                                            <color key="titleColor" red="0.6784313917" green="0.72156864399999998" blue="0.7607843876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="didTapHeart:" destination="1Hh-im-dLA" eventType="touchUpInside" id="4Em-QV-nIM"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EeX-N1-CGf" userLabel="replyButton">
-                                                        <rect key="frame" x="231.66666666666669" y="0.0" width="46.333333333333314" height="30.666666666666668"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.left" catalog="system" title="">
-                                                            <color key="baseForegroundColor" red="0.6784313917" green="0.72156864399999998" blue="0.7607843876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        </buttonConfiguration>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EeX-N1-CGf" userLabel="replyButton">
+                                                        <rect key="frame" x="179.99999999999997" y="0.0" width="21.333333333333343" height="22"/>
+                                                        <color key="tintColor" red="0.67843137249999996" green="0.72156862749999995" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="arrowshape.turn.up.left" catalog="system">
+                                                            <color key="titleColor" red="0.6784313917" green="0.72156864399999998" blue="0.7607843876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </state>
                                                     </button>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="EeX-N1-CGf" firstAttribute="bottom" secondItem="qYC-4M-i9W" secondAttribute="bottom" id="Cx9-ds-2rr"/>
+                                                    <constraint firstItem="HTz-eM-8VF" firstAttribute="top" secondItem="qYC-4M-i9W" secondAttribute="top" id="MXt-OZ-l5V"/>
+                                                    <constraint firstItem="EeX-N1-CGf" firstAttribute="top" secondItem="qYC-4M-i9W" secondAttribute="top" id="U3y-l9-Hye"/>
+                                                    <constraint firstItem="HTz-eM-8VF" firstAttribute="bottom" secondItem="qYC-4M-i9W" secondAttribute="bottom" id="bBo-yE-rWF"/>
+                                                    <constraint firstItem="uv6-WF-f7A" firstAttribute="bottom" secondItem="qYC-4M-i9W" secondAttribute="bottom" id="sr9-qn-jJs"/>
+                                                    <constraint firstItem="uv6-WF-f7A" firstAttribute="top" secondItem="qYC-4M-i9W" secondAttribute="top" id="wwV-MQ-DXT"/>
+                                                </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4S9-gY-B1D" userLabel="timeStack">
                                                 <rect key="frame" x="0.0" y="124.33333333333333" width="142.66666666666666" height="20.333333333333329"/>
@@ -422,7 +433,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jei-Bm-la9" userLabel="thirdSeperator">
-                                                <rect key="frame" x="0.0" y="219.33333333333331" width="428" height="1"/>
+                                                <rect key="frame" x="0.0" y="210.66666666666669" width="428" height="1"/>
                                                 <color key="backgroundColor" red="0.63529413940000001" green="0.63529413940000001" blue="0.63921570780000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <color key="tintColor" red="0.63529413940000001" green="0.63529413940000001" blue="0.63921570780000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
@@ -482,8 +493,10 @@
                     <navigationItem key="navigationItem" id="aIU-9J-grw"/>
                     <connections>
                         <outlet property="dateLabel" destination="1zv-OS-4ca" id="Ykn-jB-WBl"/>
+                        <outlet property="favoriteButton" destination="uv6-WF-f7A" id="yDG-MS-fDQ"/>
                         <outlet property="likeCount" destination="nec-Uh-7mn" id="kil-Wx-cYT"/>
                         <outlet property="profilePicture" destination="CTh-dV-wV7" id="zfK-LF-RAe"/>
+                        <outlet property="retweetButton" destination="HTz-eM-8VF" id="NMp-IQ-8wT"/>
                         <outlet property="retweetCount" destination="spp-Cn-akC" id="Dae-QC-feM"/>
                         <outlet property="timeLabel" destination="7r1-P1-3fI" id="ymT-cW-mBT"/>
                         <outlet property="tweetName" destination="11X-jx-bDa" id="iJg-VL-Bgm"/>
@@ -607,7 +620,6 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="message" catalog="system" width="128" height="113"/>
-        <image name="retweet-icon" width="30" height="30"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -23,7 +23,7 @@
             dictionary = originalTweet;
         }
         // set all other properties
-        self.text = dictionary[@"text"];
+        self.text = dictionary[@"full_text"];
         self.idStr = dictionary[@"id_str"];
         self.favoriteCount = [dictionary[@"favorite_count"] intValue];
         self.retweetCount = [dictionary[@"retweet_count"] intValue];

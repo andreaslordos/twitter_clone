@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DetailsViewController : UIViewController
 @property (nonatomic, weak) id<DetailsViewControllerDelegate> delegate;
 @property (strong, nonatomic) Tweet *tweet;
+@property (strong, nonatomic) UIColor *defaultColor;
 @end
 
 NS_ASSUME_NONNULL_END

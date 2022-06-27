@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *retweetCount;
+@property (weak, nonatomic) IBOutlet UIButton *retweetButton;
+@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 @property (weak, nonatomic) IBOutlet UILabel *likeCount;
 @end
 
@@ -27,21 +29,18 @@
 
 - (IBAction)didTapRetweet:(id)sender {
     if (self.tweet.retweeted == YES) { // unretweet
-        //[sender setImage:unselectedImage forState:UIControlStateNormal];
         [sender setSelected:NO];
         // Update the local tweet model
         self.tweet.retweeted = NO;
         self.tweet.retweetCount -= 1;
-        //UIImage *img = [UIImage imageNamed:@"heart"];
-        //[sender setImage:img forState:u];
+        self.retweetButton.tintColor = self.defaultColor;
     } else { // favorite
         //
         [sender setSelected:YES];
         // Update the local tweet model
         self.tweet.retweeted = YES;
         self.tweet.retweetCount += 1;
-        //UIImage *img = [UIImage imageNamed:@"heart.fill"];
-        //[sender setImage:img forState:UIControlStateNormal];
+        self.retweetButton.tintColor = UIColor.greenColor;
     }
     // Update cell UI
     [self refreshData];
@@ -64,16 +63,15 @@
         // Update the local tweet model
         self.tweet.favorited = NO;
         self.tweet.favoriteCount -= 1;
-        //UIImage *img = [UIImage imageNamed:@"heart"];
-        //[sender setImage:img forState:u];
+        self.favoriteButton.tintColor = self.defaultColor;
+        
     } else { // favorite
         //
         [sender setSelected:YES];
         // Update the local tweet model
         self.tweet.favorited = YES;
         self.tweet.favoriteCount += 1;
-        //UIImage *img = [UIImage imageNamed:@"heart.fill"];
-        //[sender setImage:img forState:UIControlStateNormal];
+        self.favoriteButton.tintColor = UIColor.redColor;
     }
     // Update cell UI
     [self refreshData];
@@ -110,6 +108,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIColor *someColor = [Utilities colorFromHexString:@"#ADB8C2"];
+    self.defaultColor = someColor;
     [self refreshData];
 }
 

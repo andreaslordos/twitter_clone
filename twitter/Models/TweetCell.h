@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *dmButton;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIButton *tweetOptions;
+@property (weak, nonatomic) UIColor *defaultColor;
 
 - (void)setTweet:(Tweet *)tweet;
 

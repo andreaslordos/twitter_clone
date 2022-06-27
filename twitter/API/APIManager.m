@@ -53,7 +53,7 @@ static NSString * const baseURLString = @"https://api.twitter.com";
 }
 
 - (void)getHomeTimelineWithCompletion:(void(^)(NSArray *tweets, NSError *error))completion {
-    NSDictionary *parameters = @{@"count": @50};
+    NSDictionary *parameters = @{@"count": @50, @"tweet_mode": @"extended"};
     [self GET:@"1.1/statuses/home_timeline.json"
    parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
         NSMutableArray *tweets = [Tweet tweetsWithArray:tweetDictionaries];

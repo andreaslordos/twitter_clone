@@ -13,9 +13,19 @@
 
 @implementation TweetCell
 
+
+
 - (void)awakeFromNib {
     [super awakeFromNib];
+    UIColor *someColor = [Utilities colorFromHexString:@"#ADB8C2"];
+    self.defaultColor = someColor;
+    [self.favoriteButton setTitleColor:UIColor.redColor forState:UIControlStateSelected];
+    [self.favoriteButton setTitleColor:self.defaultColor forState:UIControlStateNormal];
+    [self.retweetButton setTitleColor:UIColor.greenColor forState:UIControlStateSelected];
+    [self.retweetButton setTitleColor:self.defaultColor forState:UIControlStateNormal];
 }
+
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
@@ -37,8 +47,6 @@
     [self.retweetButton setTitle:[Utilities convertCountToReadableString:(self.tweet.retweetCount)] forState:UIControlStateSelected];
     [self.favoriteButton setTitle:[Utilities convertCountToReadableString:(self.tweet.favoriteCount)] forState:UIControlStateNormal];
     [self.favoriteButton setTitle:[Utilities convertCountToReadableString:(self.tweet.favoriteCount)] forState:UIControlStateSelected];
-    //self.retweetButton.titleLabel.text = [@(self.tweet.retweetCount) stringValue];
-    //self.favoriteButton.titleLabel.text = [@(self.tweet.favoriteCount) stringValue];
 }
 
 - (void)setTweet:(Tweet *)tweet {
@@ -54,16 +62,13 @@
         // Update the local tweet model
         self.tweet.favorited = NO;
         self.tweet.favoriteCount -= 1;
-        //UIImage *img = [UIImage imageNamed:@"heart"];
-        //[sender setImage:img forState:u];
+        self.favoriteButton.tintColor = self.defaultColor;
     } else { // favorite
-        //
         [sender setSelected:YES];
         // Update the local tweet model
         self.tweet.favorited = YES;
         self.tweet.favoriteCount += 1;
-        //UIImage *img = [UIImage imageNamed:@"heart.fill"];
-        //[sender setImage:img forState:UIControlStateNormal];
+        self.favoriteButton.tintColor = UIColor.redColor;
     }
     // Update cell UI
     [self refreshData];
@@ -82,21 +87,18 @@
 
 - (IBAction)didTapRetweet:(id)sender {
     if (self.tweet.retweeted == YES) { // unretweet
-        //[sender setImage:unselectedImage forState:UIControlStateNormal];
         [sender setSelected:NO];
         // Update the local tweet model
         self.tweet.retweeted = NO;
         self.tweet.retweetCount -= 1;
-        //UIImage *img = [UIImage imageNamed:@"heart"];
-        //[sender setImage:img forState:u];
+        self.retweetButton.tintColor = self.defaultColor;
     } else { // favorite
         //
         [sender setSelected:YES];
         // Update the local tweet model
         self.tweet.retweeted = YES;
         self.tweet.retweetCount += 1;
-        //UIImage *img = [UIImage imageNamed:@"heart.fill"];
-        //[sender setImage:img forState:UIControlStateNormal];
+        self.retweetButton.tintColor = UIColor.greenColor;
     }
     // Update cell UI
     [self refreshData];
