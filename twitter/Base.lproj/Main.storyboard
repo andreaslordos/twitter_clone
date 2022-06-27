@@ -115,7 +115,7 @@
                                                         <color key="titleColor" red="0.6784313917" green="0.71764707569999997" blue="0.7607843876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
                                                 </button>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" editable="NO" text="Hello world" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QIW-hT-x6K">
+                                                <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" editable="NO" text="Hello world" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QIW-hT-x6K">
                                                     <rect key="frame" x="86" y="32" width="317" height="35.333333333333343"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
